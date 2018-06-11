@@ -8,7 +8,7 @@ type Props = {
   title: string;
 }
 
-const SfcMaterialUi = ({ title }: Props & WithStyles) => {
+const @tempate('NAME') = ({ title }: Props & WithStyles) => {
   const onClick = () => console.log('hello')
 
   return (
@@ -26,4 +26,4 @@ const styles = theme => ({
 
 export const Header = compose(
   withStyles(styles),
-)(_Header)
+)(@template('NAME'))
