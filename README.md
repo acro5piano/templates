@@ -31,6 +31,16 @@ You can just run the above command with `run.sh`:
 ./.templates/run.sh src/components/MyComponent.jsx
 ```
 
+# Development
+
+After checkout the repo, run
+
+```
+touch .dev
+```
+
+With `.dev` file Templates recognize dev env.
+
 # TODO
 
 - Add more templates

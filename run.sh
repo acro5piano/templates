@@ -1,7 +1,13 @@
 #!/bin/bash
 
+set -eu
+
 ROOT_DIR=`cd $(dirname $0); pwd`
 TEMPLATE_PATH=$ROOT_DIR/assets
+
+template::dev() {
+    test -e $ROOT_DIR/.dev
+}
 
 template::filter() {
     if which -s fzf; then
@@ -21,6 +27,10 @@ template::filter() {
 }
 
 template::main() {
+    if template::dev; then
+        set -x
+    fi
+
     if [ -z $1 ]; then
         echo 'Error: argument 1 needed' 1>&2
         return 1
@@ -36,7 +46,7 @@ template::main() {
         fi
     fi
 
-    from=`find $TEMPLATE_PATH -type f | perl -pe "s;$PWD/assets;;" | $(template::filter)`
+    from=`find $TEMPLATE_PATH -type f | perl -pe "s;$TEMPLATE_PATH;;" | $(template::filter)`
     cp $TEMPLATE_PATH/$from $to
 
     echo "Success:"
