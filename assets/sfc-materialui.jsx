@@ -8,7 +8,7 @@ type Props = {
   title: string;
 }
 
-const @tempate('NAME') = ({ title }: Props & WithStyles) => {
+const @template('NAME') = ({ title }: Props & WithStyles) => {
   const onClick = () => console.log('hello')
 
   return (
