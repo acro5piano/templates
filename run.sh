@@ -36,7 +36,7 @@ template::main() {
         fi
     fi
 
-    from=`find $TEMPLATE_PATH -type f | perl -pe "s;$PWD/assets/;;" | $(template::filter)`
+    from=`find $TEMPLATE_PATH -type f | perl -pe "s;$PWD/assets;;" | $(template::filter)`
     cp $TEMPLATE_PATH/$from $to
 
     echo "Success:"
